@@ -1,0 +1,23 @@
+---
+layout: base.njk
+title: Contact
+---
+<h1>Contact</h1>
+<form id="contact" method="POST" action="/api/contact">
+  <input name="name" placeholder="Name" required>
+  <input name="email" type="email" placeholder="Email" required>
+  <textarea name="message" placeholder="Message" required></textarea>
+  <div class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY"></div>
+  <button type="submit">Send</button>
+  <p id="status"></p>
+</form>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script>
+const form = document.getElementById('contact');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const res = await fetch('/api/contact', { method: 'POST', body: new FormData(form) });
+  document.getElementById('status').textContent = await res.text();
+  if (res.ok) form.reset();
+});
+</script>
