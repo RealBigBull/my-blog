@@ -1,0 +1,5 @@
+body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
+header { margin-bottom: 2rem; }
+img { max-width: 100%; height: auto; }
+.posts li { margin-bottom: 0.5rem; }
+time { color: #666; font-size: 0.9em; margin-left: 0.5rem; }
